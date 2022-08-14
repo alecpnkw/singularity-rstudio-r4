@@ -2,11 +2,11 @@ BootStrap: docker
 From: r-base:4.0.4
 
 %labels
-  Maintainer Wei Guo
+  Maintainer Alec Pankow
   R_Version 4.0.4
   RStudio_Version 1.3.1093
-  Adopted_from https://github.com/nickjer/singularity-rstudio
-
+  Adopted_from nickjer/singularity-rstudio & vigo332/singularity-rstudio-r4
+  
 %help
   This will run RStudio Server
 
@@ -79,6 +79,8 @@ From: r-base:4.0.4
     libcairo2-dev \
     unixodbc-dev \
     libxt-dev \
+    libharfbuzz-dev \
+    libfribidi-dev \
     wget \
     libgsl-dev \
     gdebi-core
