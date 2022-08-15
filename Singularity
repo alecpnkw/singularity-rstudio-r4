@@ -20,22 +20,25 @@ From: r-base:4.0.4
   export PATH=/usr/lib/rstudio-server/bin:${PATH}
 
 %files
-  jranke.asc /tmp/jranke.asc
+  #jranke.asc /tmp/jranke.asc
+  rstudio_auth.sh
+  ldap_auth.py
+  pam-helper.sh
 
 %setup
-  install -Dv \
-    rstudio_auth.sh \
-    ${SINGULARITY_ROOTFS}/usr/lib/rstudio-server/bin/rstudio_auth
-  install -Dv \
-    ldap_auth.py \
-    ${SINGULARITY_ROOTFS}/usr/lib/rstudio-server/bin/ldap_auth
-  install -Dv \
-    pam-helper.sh \
-    ${SINGULARITY_ROOTFS}/usr/lib/rstudio-server/bin/pam-helper
+  #install -Dv \
+  #  rstudio_auth.sh \
+  #  ${SINGULARITY_ROOTFS}/usr/lib/rstudio-server/bin/rstudio_auth
+  #install -Dv \
+  #  ldap_auth.py \
+  #  ${SINGULARITY_ROOTFS}/usr/lib/rstudio-server/bin/ldap_auth
+  #install -Dv \
+  #  pam-helper.sh \
+  #  ${SINGULARITY_ROOTFS}/usr/lib/rstudio-server/bin/pam-helper
 
-  install -Dv \
-    jranke.asc \
-    ${SINGULARITY_ROOTFS}/tmp/jranke.asc
+  #install -Dv \
+  #  jranke.asc \
+  #  ${SINGULARITY_ROOTFS}/tmp/jranke.asc
   
 %post
   # Software versions
@@ -59,6 +62,15 @@ From: r-base:4.0.4
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
 
+  install -Dv \
+    rstudio_auth.sh \
+    /usr/lib/rstudio-server/bin/rstudio_auth
+  install -Dv \
+    ldap_auth.py \
+    /usr/lib/rstudio-server/bin/ldap_auth
+  install -Dv \
+    pam-helper.sh \
+    /usr/lib/rstudio-server/bin/pam-helper
 
   # Install R
   apt-key add /tmp/jranke.asc
