@@ -3,7 +3,7 @@ From: r-base:4.0.4
 
 %labels
   Maintainer Alec Pankow
-  R_Version 4.2.1
+  R_Version 4.0.3
   RStudio_Version 1.3.1093
   Adopted_from nickjer/singularity-rstudio & vigo332/singularity-rstudio-r4
   
@@ -26,7 +26,7 @@ From: r-base:4.0.4
   
 %post
   # Software versions
-  export R_VERSION=4.2.1
+  export R_VERSION=4.0.3
   export RSTUDIO_VERSION=1.3.1093
   export DEBIAN_FRONTEND=noninteractive
 
@@ -56,19 +56,13 @@ From: r-base:4.0.4
     pam-helper.sh \
     /usr/lib/rstudio-server/bin/pam-helper
 
-  # Install R
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7'
-  add-apt-repository "deb http://cloud.r-project.org/bin/linux/debian $(lsb_release -cs)-cran40/"
+  ## Install R
+  #apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7'
+  #add-apt-repository "deb http://cloud.r-project.org/bin/linux/debian $(lsb_release -cs)-cran40/"
 
   apt-get update -y
   apt-get upgrade -y
   apt-get install -y --allow-unauthenticated --fix-missing --fix-broken \
-    r-base=${R_VERSION}* \
-    r-base-core=${R_VERSION}* \
-    r-base-dev=${R_VERSION}* \
-    r-base-html=${R_VERSION}* \
-    r-doc-html=${R_VERSION}* \
-    r-recommended=${R_VERSION}* \
     libcurl4-openssl-dev \
     libssl-dev \
     libxml2-dev \
