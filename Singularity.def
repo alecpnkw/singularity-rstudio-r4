@@ -1,5 +1,5 @@
 BootStrap: docker
-From: r-base:4.0.4
+From: r-base:4.0.3
 
 %labels
   Maintainer Alec Pankow
@@ -71,6 +71,13 @@ From: r-base:4.0.4
     libxt-dev \
     libharfbuzz-dev \
     libfribidi-dev \
+    libgeos-dev \
+    libfftw3-dev \
+    libhdf5-dev \
+    libtiff5-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libpng-dev \
     wget \
     libgsl-dev \
     gdebi-core
