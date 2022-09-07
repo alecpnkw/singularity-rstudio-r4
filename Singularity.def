@@ -56,10 +56,6 @@ From: r-base:4.0.3
     pam-helper.sh \
     /usr/lib/rstudio-server/bin/pam-helper
 
-  ## Install R
-  #apt-key adv --keyserver keyserver.ubuntu.com --recv-key '95C0FAF38DB3CCAD0C080A7BDC78B2DDEABC47B7'
-  #add-apt-repository "deb http://cloud.r-project.org/bin/linux/debian $(lsb_release -cs)-cran40/"
-
   apt-get update -y
   apt-get upgrade -y
   apt-get install -y --allow-unauthenticated --fix-missing --fix-broken \
@@ -111,4 +107,3 @@ From: r-base:4.0.3
 
   # Clean up
   rm -rf /var/lib/apt/lists/*
-
